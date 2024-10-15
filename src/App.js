@@ -1,25 +1,26 @@
-import logo from './logo.svg';
+import { Route, Routes } from 'react-router-dom';
 import './App.css';
+import MovieApp from './Component/MovieApp';
+import ShowMovie from './Component/ShowMovie';
 
 function App() {
+
+  // const addMovie = (newMovie) => {
+  //   setMovies([...movies, newMovie]);
+  //   setFilteredMovies([...movies, newMovie]);
+  // };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+
+      <Routes>
+        {/* Route for the movie list */}
+        <Route path="/" element={<MovieApp />} />
+        {/* Route for showing movie details by ID */}
+        <Route path="/movie/:id" element={<ShowMovie />} />
+      </Routes>
     </div>
   );
-}
+};
 
 export default App;
